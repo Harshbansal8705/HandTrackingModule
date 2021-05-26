@@ -9,6 +9,7 @@ from handtrackingmodule import FindHands
 cap = cv2.VideoCapture(0)
 detector = FindHands()
 
+```
 while True:
     succeed, img = cap.read()
     hand1_positions = detector.getPosition(img, range(21), draw=False)
@@ -24,4 +25,10 @@ while True:
     cv2.imshow("Image", img)
     if cv2.waitKey(10) == ord('q'):
         break
+```
+
+You can install module by simple pip command as:
+```
+pip install HandTrackingModule
+```
 
