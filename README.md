@@ -3,13 +3,14 @@ This is a simplified version of mediapipe to do hand tracking
 
 Here is the example code to run the file:
 
+```
 import cv2
-from handtrackingmodule import FindHands
+from HandTrackingModule import FindHands
 
 cap = cv2.VideoCapture(0)
 detector = FindHands()
 
-```
+
 while True:
     succeed, img = cap.read()
     hand1_positions = detector.getPosition(img, range(21), draw=False)
