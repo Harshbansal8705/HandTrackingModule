@@ -3,9 +3,9 @@ import mediapipe as mp
 
 class FindHands():
     def __init__(self, detection_con=0.5, tracking_con=0.5):
-        self.mpHands = mp.solutions.mediapipe.python.solutions.hands
+        self.mpHands = mp.solutions.hands
         self.hands = self.mpHands.Hands(min_detection_confidence=detection_con, min_tracking_confidence=tracking_con)
-        self.mpDraw = mp.solutions.mediapipe.python.solutions.drawing_utils
+        self.mpDraw = mp.solutions.drawing_utils
     
     def getPosition(self, img, indexes, hand_no=0, draw=True):
         lst = []
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     hands = FindHands()
     while True:
         succeed, img = cap.read()
-        lst = hands.getPosition(img, 8)
+        lst = hands.getPosition(img, [8])
         for pt in lst:
             cv2.circle(img, pt, 5, (0,255,0), cv2.FILLED)
         cv2.imshow("Image", img)
